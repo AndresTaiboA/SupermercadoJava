@@ -71,7 +71,7 @@ public class Supermercado {
                     }
                     break;
                 case 2:
-                    //agregar proveedor
+                    System.out.println("Agregar proveedor");
                     break;
                 case 3:
                     //agregar venta
