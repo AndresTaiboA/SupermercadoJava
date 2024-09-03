@@ -36,6 +36,5 @@ public class Compra {
     public int getCantidad() {
         return cantidad;
     }
-    //hola
 
 }
