@@ -36,5 +36,5 @@ public class Venta {
     public int getCantidad() {
         return cantidad;
     }
-    
+    //hola
 }
