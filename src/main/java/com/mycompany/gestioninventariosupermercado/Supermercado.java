@@ -18,6 +18,7 @@ public class Supermercado {
     private ArrayList<String> claves = new ArrayList();
     private Seccion seccion;
     private HashMap<String, Seccion> secciones = new HashMap<>();
+    private HashMap<String, Producto> inventarioProductos = new HashMap<>();
     
     Scanner lector = new Scanner(System.in);
     
@@ -73,7 +74,7 @@ public class Supermercado {
                 case 2:
                     break;
                 case 3:
-                    //agregar venta
+                    agregarVenta();
                     break;
                 case 4:
                     //agregar compra
@@ -89,5 +90,31 @@ public class Supermercado {
                     break;
             }
         }while(opcion!=9);        
+    }
+    private void agregarVenta(){
+        System.out.println("Ingrese id de venta");
+                    String idVenta = lector.nextLine();
+                    System.out.println("Ingrese el id del producto");
+                    String idProducto = lector.nextLine();
+                    if(inventarioProductos.containsKey(idProducto)){
+                        for(int i = 0;i<claves.size();i++){
+                            if((secciones.get(i)).existeProducto(idProducto)){
+                                System.out.println("Ingrese la cantidad que se vendio");
+                                String cantidadVendida = lector.nextLine();
+                                if(Integer.parseInt(cantidadVendida)>inventarioProductos.get(idProducto).getStock())
+                                {
+                                    System.out.println("No hay suficiente stock");
+                                }
+                                else{
+                                    Venta nuevaVenta = new Venta(idVenta, (secciones.get(i)).getId(), inventarioProductos.get(idProducto), Integer.parseInt(cantidadVendida));
+                                }
+                                  
+                            }
+                        }
+                        
+                    }
+                    else{
+                        System.out.println("El producto no existe.");
+                    }
     }
 }

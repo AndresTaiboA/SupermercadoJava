@@ -39,5 +39,13 @@ public class Seccion {
     public void agregarProductoASeccion(Producto producto){
         this.productos.add(producto); 
     }
+    public Boolean existeProducto(String id){
+        for(int i=0;i<productos.size();i++){
+            if(((productos.get(i)).getId()).equals(id)){
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

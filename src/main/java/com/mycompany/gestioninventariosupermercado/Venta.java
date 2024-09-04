@@ -9,14 +9,13 @@ package com.mycompany.gestioninventariosupermercado;
  * @author Andres
  */
 public class Venta {
-    private String id;
-    private Seccion seccionPerteneciente;
+    private String id, idSeccion;
     private Producto productoVenta;
     private int cantidad;
 
-    public Venta(String id, Seccion seccionPerteneciente, Producto productoVenta, int cantidad) {
+    public Venta(String id, String seccionPerteneciente, Producto productoVenta, int cantidad) {
         this.id = id;
-        this.seccionPerteneciente = seccionPerteneciente;
+        this.idSeccion = seccionPerteneciente;
         this.productoVenta = productoVenta;
         this.cantidad = cantidad;
     }
@@ -25,8 +24,8 @@ public class Venta {
         return id;
     }
 
-    public String getSeccionPerteneciente() {
-        return seccionPerteneciente.getId();
+    public String getIdSeccion() {
+        return idSeccion;
     }
 
     public String getProductoVenta() {
