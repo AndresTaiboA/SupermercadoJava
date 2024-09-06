@@ -47,5 +47,16 @@ public class Seccion {
         }
         return false;
     }
+    public void mostrarProductos()
+    {
+        if(productos.isEmpty()){
+            System.out.println("No hay Productos en esta seccion.");
+            return;
+        }
+        for(int i=0; i<productos.size();i++){
+            System.out.print("Producto: "+productos.get(i).getNombre());
+            System.out.print(" Cantidad: "+productos.get(i).getStock());
+        }
+    }
     
 }

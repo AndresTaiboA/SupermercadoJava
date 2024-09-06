@@ -19,13 +19,16 @@ public class Supermercado {
     private Seccion seccion;
     private HashMap<String, Seccion> secciones = new HashMap<>();
     private HashMap<String, Producto> inventarioProductos = new HashMap<>();
+    private HashMap<String, Proveedor> proveedores = new HashMap<>();
     
     Scanner lector = new Scanner(System.in);
     
-    public Supermercado(/*String id, String nombre*/) {
-        //cambiar luego
-        this.id = "super";
-        this.nombre = "mercado";
+     public Supermercado() {
+        this.id = "001";
+        this.nombre = "Supermercado XYZ";
+
+        // Cargar datos iniciales
+        cargarDatosIniciales();
     }
     public void menu()
     {
@@ -98,7 +101,7 @@ public class Supermercado {
                     String idProducto = lector.nextLine();
                     if(inventarioProductos.containsKey(idProducto)){
                         for(int i = 0;i<claves.size();i++){
-                            if((secciones.get(i)).existeProducto(idProducto)){
+                            if((secciones.get(claves.get(i))).existeProducto(idProducto)){
                                 System.out.println("Ingrese la cantidad que se vendio");
                                 String cantidadVendida = lector.nextLine();
                                 if(Integer.parseInt(cantidadVendida)>inventarioProductos.get(idProducto).getStock())
@@ -106,7 +109,7 @@ public class Supermercado {
                                     System.out.println("No hay suficiente stock");
                                 }
                                 else{
-                                    Venta nuevaVenta = new Venta(idVenta, (secciones.get(i)).getId(), inventarioProductos.get(idProducto), Integer.parseInt(cantidadVendida));
+                                    Venta nuevaVenta = new Venta(idVenta, (secciones.get(claves.get(i))).getId(), inventarioProductos.get(idProducto), Integer.parseInt(cantidadVendida));
                                 }
                                   
                             }
@@ -117,4 +120,100 @@ public class Supermercado {
                         System.out.println("El producto no existe.");
                     }
     }
+    private void mostrarProductosPorSeccion(){
+        if (secciones.isEmpty()) {
+            System.out.println("No hay secciones en el supermercado.");
+            return;
+        }
+
+        Seccion seccionTmp;
+
+        for(int i = 0;i<claves.size();i++){
+            System.out.println("Seccion: "+secciones.get(claves.get(i)).getNombre());
+            seccionTmp = secciones.get(claves.get(i));
+            seccionTmp.mostrarProductos();
+            System.out.println();
+        }
+    }
+     private void cargarDatosIniciales() {
+        // Proveedores iniciales
+        Proveedor proveedor1 = new Proveedor("P001", "Proveedor Alimentos");
+        Proveedor proveedor2 = new Proveedor("P002", "Proveedor Bebidas");
+        proveedores.put(proveedor1.getId(), proveedor1);
+        proveedores.put(proveedor2.getId(), proveedor2);
+
+        // Secciones iniciales
+        Seccion seccionAlimentos = new Seccion("S001", "Alimentos");
+        Seccion seccionBebidas = new Seccion("S002", "Bebidas");
+        secciones.put(seccionAlimentos.getId(), seccionAlimentos);
+        secciones.put(seccionBebidas.getId(), seccionBebidas);
+        claves.add(seccionAlimentos.getId());
+        claves.add(seccionBebidas.getId());
+
+        // Productos iniciales
+        Producto producto1 = new Producto("PR001", "Arroz");
+        Producto producto2 = new Producto("PR002", "Coca Cola");
+        producto1.aumentarStock(50);
+        producto2.aumentarStock(30);
+
+        // Asignar productos a secciones
+        seccionAlimentos.agregarProductoASeccion(producto1);
+        seccionBebidas.agregarProductoASeccion(producto2);
+
+        // Agregar productos al inventario general
+        inventarioProductos.put(producto1.getId(), producto1);
+        inventarioProductos.put(producto2.getId(), producto2);
+
+        System.out.println("Datos iniciales cargados correctamente.");
+    }
+     /*
+     private void realizarCompra() {
+            System.out.println("Ingresar id de la compra");
+            String idCompra = lector.nextLine();
+            System.out.println("Ingresar id de la seccion");
+            String idSeccion = lector.nextLine();
+            Seccion seccion = secciones.get(idSeccion);
+            if (seccion == null) {
+                System.out.println("La seccion no existe");
+                return;
+            }
+
+            System.out.println("Ingresar id del producto");
+            String idProducto = lector.nextLine();
+            Producto producto = seccion.buscarProducto(idProducto);
+            if (producto == null) {
+                System.out.println("El producto no existe en esta seccion");
+                return;
+            }
+
+            System.out.println("Ingresar id del proveedor");
+            String idProveedor = lector.nextLine();
+            Proveedor proveedor = proveedores.get(idProveedor);
+            if (proveedor == null) {
+                System.out.println("El proveedor no existe");
+                return;
+            }
+
+            System.out.println("Ingresar cantidad a comprar");
+            int cantidad = Integer.parseInt(lector.nextLine());
+
+            Compra compra = new Compra(idCompra, seccion, producto, proveedor, cantidad);
+            producto.aumentarStock(cantidad);
+            System.out.println("Compra realizada correctamente");
+        }
+*/
+    
+    private void agregarProveedor() {
+            System.out.println("Ingresar id del proveedor");
+            String idProveedor = lector.nextLine();
+            if(proveedores.containsKey(idProveedor)) {
+                System.out.println("Este proveedor ya existe");
+            } else {
+                System.out.println("Ingresar nombre del proveedor");
+                String nombreProveedor = lector.nextLine();
+                Proveedor proveedor = new Proveedor(idProveedor, nombreProveedor);
+                proveedores.put(idProveedor, proveedor);
+                System.out.println("Proveedor ingresado correctamente");
+            }
+        }
 }
