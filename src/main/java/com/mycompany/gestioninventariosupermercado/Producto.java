@@ -39,18 +39,20 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public void aumentarStock() {
-        this.stock ++;
-    }
     public void aumentarStock(int stock) {
         this.stock += stock;
     }
-    public void disminuirStock(){
-        this.stock --;
+
+    public void aumentarStock() {
+        this.stock ++;
     }
+    
     public void disminuirStock(int stock){
         this.stock -= stock;
     }
-    
-    
+
+    public void disminuirStock(){
+        this.stock --;
+    }
+
 }

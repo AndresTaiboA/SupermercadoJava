@@ -14,14 +14,14 @@ public class Compra {
     private Producto productoCompra;
     private Proveedor proveedor;
     private int cantidad;
-    
+
     public Compra(String id, Seccion seccionPerteneciente, Producto productoCompra, Proveedor proveedor, int cantidad) {
         this.id = id;
         this.seccionPerteneciente = seccionPerteneciente;
         this.productoCompra = productoCompra;
         this.proveedor = proveedor;
         this.cantidad = cantidad;
-}
+    }
 
     public String getId() {
         return id;
@@ -31,8 +31,12 @@ public class Compra {
         return seccionPerteneciente.getId();
     }
 
-    public String getProductoVenta() {
+    public String getProductoCompra() {
         return productoCompra.getId();
+    }
+
+    public String getProveedor() {
+        return proveedor.getId();
     }
 
     public int getCantidad() {
