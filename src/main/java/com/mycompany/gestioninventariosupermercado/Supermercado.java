@@ -16,6 +16,7 @@ public class Supermercado {
     private String id, nombre, idSeccion;
     private int opcion;
     private ArrayList<String> claves = new ArrayList();
+    private ArrayList<Venta> ventas = new ArrayList();
     private Seccion seccion;
     private HashMap<String, Seccion> secciones = new HashMap<>();
     private HashMap<String, Producto> inventarioProductos = new HashMap<>();
@@ -110,6 +111,7 @@ public class Supermercado {
                                 }
                                 else{
                                     Venta nuevaVenta = new Venta(idVenta, (secciones.get(claves.get(i))).getId(), inventarioProductos.get(idProducto), Integer.parseInt(cantidadVendida));
+                                    ventas.add(nuevaVenta);
                                 }
                                   
                             }
@@ -166,43 +168,50 @@ public class Supermercado {
 
         System.out.println("Datos iniciales cargados correctamente.");
     }
-     /*
-     private void realizarCompra() {
-            System.out.println("Ingresar id de la compra");
-            String idCompra = lector.nextLine();
-            System.out.println("Ingresar id de la seccion");
-            String idSeccion = lector.nextLine();
-            Seccion seccion = secciones.get(idSeccion);
-            if (seccion == null) {
-                System.out.println("La seccion no existe");
-                return;
-            }
+   /*
+   private void realizarCompra() {
+        System.out.println("Ingresar id de la compra");
+        String idCompra = lector.nextLine();
 
-            System.out.println("Ingresar id del producto");
-            String idProducto = lector.nextLine();
-            Producto producto = seccion.buscarProducto(idProducto);
-            if (producto == null) {
-                System.out.println("El producto no existe en esta seccion");
-                return;
-            }
-
-            System.out.println("Ingresar id del proveedor");
-            String idProveedor = lector.nextLine();
-            Proveedor proveedor = proveedores.get(idProveedor);
-            if (proveedor == null) {
-                System.out.println("El proveedor no existe");
-                return;
-            }
-
-            System.out.println("Ingresar cantidad a comprar");
-            int cantidad = Integer.parseInt(lector.nextLine());
-
-            Compra compra = new Compra(idCompra, seccion, producto, proveedor, cantidad);
-            producto.aumentarStock(cantidad);
-            System.out.println("Compra realizada correctamente");
+        System.out.println("Ingresar id de la seccion");
+        String idSeccion = lector.nextLine();
+        Seccion seccion = secciones.get(idSeccion);
+        if (seccion == null) {
+            System.out.println("La seccion no existe");
+            return;
         }
-*/
-    
+
+        System.out.println("Ingresar id del producto");
+        String idProducto = lector.nextLine();
+
+        if (!seccion.existeProducto(idProducto)) {
+            System.out.println("El producto no existe en esta sección");
+            return;
+        }
+
+        System.out.println("Ingresar id del proveedor");
+        String idProveedor = lector.nextLine();
+        Proveedor proveedor = proveedores.get(idProveedor);
+        if (proveedor == null) {
+            System.out.println("El proveedor no existe");
+            return;
+        }
+
+        System.out.println("Ingresar cantidad a comprar");
+        int cantidad = Integer.parseInt(lector.nextLine());
+
+        seccion.modificarStockProducto(idProducto, cantidad);
+
+        Producto productoTmp = seccion.copiarDatosProducto(idProducto);
+
+        if (productoTmp != null) {
+            Compra compra = new Compra(idCompra, seccion, productoTmp, proveedor, cantidad);
+            compras.add(compra);
+            System.out.println("Compra guardada correctamente");
+        }
+        System.out.println("Compra Finalizada correctamente");
+    }
+    */
     private void agregarProveedor() {
             System.out.println("Ingresar id del proveedor");
             String idProveedor = lector.nextLine();
