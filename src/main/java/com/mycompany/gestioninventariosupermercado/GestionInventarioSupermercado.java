@@ -3,6 +3,7 @@
  */
 
 package com.mycompany.gestioninventariosupermercado;
+import vistas.Menu;
 
 /**
  *
@@ -12,6 +13,7 @@ public class GestionInventarioSupermercado {
 
     public static void main(String[] args) {
         Supermercado supermercado = new Supermercado();
+        Menu.iniciar();
         supermercado.menu();
     }
 }
