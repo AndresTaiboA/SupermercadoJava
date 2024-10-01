@@ -26,7 +26,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAgregarProducto = new javax.swing.JButton();
+        btnProductos = new javax.swing.JButton();
         btnAgregarSeccion = new javax.swing.JButton();
         btnAgregarProveedor = new javax.swing.JButton();
         btnAgregarVenta = new javax.swing.JButton();
@@ -35,10 +35,10 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAgregarProducto.setText("Agregar producto");
-        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+        btnProductos.setText("Productos");
+        btnProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarProductoActionPerformed(evt);
+                btnProductosActionPerformed(evt);
             }
         });
 
@@ -86,7 +86,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnAgregarProveedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnAgregarSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAgregarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnMostrarP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -99,7 +99,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarProducto)
+                    .addComponent(btnProductos)
                     .addComponent(btnAgregarVenta))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -115,19 +115,19 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-        AgregarProducto.iniciar();
-        this.setVisible(false);
-    }//GEN-LAST:event_btnAgregarProductoActionPerformed
+    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
+        MenuProducto.iniciar();
+        this.dispose();
+    }//GEN-LAST:event_btnProductosActionPerformed
 
     private void btnAgregarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSeccionActionPerformed
         AgregarSeccion.iniciar();
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarSeccionActionPerformed
 
     private void btnAgregarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProveedorActionPerformed
         AgregarProveedor.inicio();
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarProveedorActionPerformed
 
     private void btnMostrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPActionPerformed
@@ -136,12 +136,12 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnAgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCompraActionPerformed
         AgregarCompra.iniciar();
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarCompraActionPerformed
 
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
         AgregarVenta.iniciar();
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
 
     /**
@@ -181,10 +181,10 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarCompra;
-    private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JButton btnAgregarProveedor;
     private javax.swing.JButton btnAgregarSeccion;
     private javax.swing.JButton btnAgregarVenta;
     private javax.swing.JButton btnMostrarP;
+    private javax.swing.JButton btnProductos;
     // End of variables declaration//GEN-END:variables
 }

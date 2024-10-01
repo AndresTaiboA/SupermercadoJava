@@ -28,7 +28,7 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnAgregarProveedor" max="32767" attributes="0"/>
                   <Component id="btnAgregarSeccion" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btnAgregarProducto" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btnProductos" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="168" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -45,7 +45,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnAgregarProducto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnProductos" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAgregarVenta" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -64,12 +64,12 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnAgregarProducto">
+    <Component class="javax.swing.JButton" name="btnProductos">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar producto"/>
+        <Property name="text" type="java.lang.String" value="Productos"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarProductoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductosActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAgregarSeccion">

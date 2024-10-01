@@ -8,12 +8,12 @@ package vistas;
  *
  * @author Andres
  */
-public class AgregarProducto extends javax.swing.JFrame {
+public class MenuProducto extends javax.swing.JFrame {
 
     /**
-     * Creates new form AgregarProducto
+     * Creates new form MenuProducto
      */
-    public AgregarProducto() {
+    public MenuProducto() {
         initComponents();
     }
 
@@ -26,15 +26,20 @@ public class AgregarProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblAgregarProducto = new javax.swing.JLabel();
+        lblProductos = new javax.swing.JLabel();
         btnAgregarProducto = new javax.swing.JButton();
         btnVolverProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblAgregarProducto.setText("Agregar producto");
+        lblProductos.setText("Productos");
 
-        btnAgregarProducto.setText("Agregar");
+        btnAgregarProducto.setText("Agregar producto");
+        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProductoActionPerformed(evt);
+            }
+        });
 
         btnVolverProducto.setText("Volver");
         btnVolverProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -48,34 +53,40 @@ public class AgregarProducto extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(lblAgregarProducto)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(btnAgregarProducto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
-                .addComponent(btnVolverProducto)
-                .addGap(56, 56, 56))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblProductos)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(40, 40, 40)
+                            .addComponent(btnAgregarProducto))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(155, 155, 155)
+                            .addComponent(btnVolverProducto))))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblAgregarProducto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarProducto)
-                    .addComponent(btnVolverProducto))
-                .addGap(42, 42, 42))
+                .addGap(16, 16, 16)
+                .addComponent(lblProductos)
+                .addGap(33, 33, 33)
+                .addComponent(btnAgregarProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addComponent(btnVolverProducto)
+                .addGap(25, 25, 25))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
+        AgregarProducto.iniciar();
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAgregarProductoActionPerformed
+
     private void btnVolverProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverProductoActionPerformed
         this.dispose();
-        MenuProducto.iniciar();
+        Menu.iniciar();
     }//GEN-LAST:event_btnVolverProductoActionPerformed
 
     /**
@@ -95,20 +106,20 @@ public class AgregarProducto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuProducto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AgregarProducto().setVisible(true);
+                new MenuProducto().setVisible(true);
             }
         });
     }
@@ -116,6 +127,6 @@ public class AgregarProducto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JButton btnVolverProducto;
-    private javax.swing.JLabel lblAgregarProducto;
+    private javax.swing.JLabel lblProductos;
     // End of variables declaration//GEN-END:variables
 }
