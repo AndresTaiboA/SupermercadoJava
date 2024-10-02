@@ -90,9 +90,9 @@ public class AgregarProducto extends javax.swing.JFrame {
                                 .addComponent(btnAgregarProducto)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                                 .addComponent(btnVolverProducto))
-                            .addComponent(txtIdSeccion)
                             .addComponent(txtIdProducto)
-                            .addComponent(txtNombreProducto))))
+                            .addComponent(txtNombreProducto)
+                            .addComponent(txtIdSeccion))))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

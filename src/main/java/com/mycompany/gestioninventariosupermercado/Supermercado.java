@@ -44,14 +44,10 @@ public class Supermercado {
         }
     }
 
-    private void agregarSeccion() {
-        System.out.println("Ingresar id de la seccion");
-        idSeccion = lector.nextLine();
+    public void agregarSeccion(String id, String nombre) {
         if(secciones.containsKey(idSeccion)){
             System.out.println("Esta seccion ya existe");
         } else {
-            System.out.println("Ingresar nombre de la seccion");
-            nombre = lector.nextLine();
             Seccion seccion = new Seccion(idSeccion, nombre);
             secciones.put(idSeccion, seccion);
             claves.add(idSeccion);

@@ -43,9 +43,9 @@
                               <EmptySpace pref="46" max="32767" attributes="0"/>
                               <Component id="btnVolverProducto" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtIdSeccion" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtIdProducto" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtNombreProducto" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtIdSeccion" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>

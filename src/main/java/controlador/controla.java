@@ -15,4 +15,7 @@ public class controla {
     public static void agregarProductoC(String idS, String idP, String nom){
         GestionInventarioSupermercado.agregarProducto(idS, idP, nom);
     }
+    public static void agregarSeccionC(String id, String nombre){
+        GestionInventarioSupermercado.agregarSeccion(id, nombre);
+    }
 }

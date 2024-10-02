@@ -17,4 +17,8 @@ public class GestionInventarioSupermercado {
     public static void agregarProducto(String idSeccion, String idProducto, String nombre){
        supermercado.agregarProducto(idSeccion, idProducto, nombre);
     }
+    public static void agregarSeccion(String id, String nombre){
+        supermercado.agregarSeccion(id, nombre);
+    
+    }
 }
