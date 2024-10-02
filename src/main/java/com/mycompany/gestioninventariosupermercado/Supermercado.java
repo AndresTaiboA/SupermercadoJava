@@ -33,59 +33,8 @@ public class Supermercado {
         // Cargar datos iniciales
         cargarDatosIniciales();
     }
-    
-    public void menu()
-    {
-        do{
-        vereficarStockSupermercado();
-        System.out.println();
-                
-        System.out.println("0. Agregar un producto");
-        System.out.println("1. Agregar una seccion");
-        System.out.println("2. Ingresar un proveedor");
-        System.out.println("3. Agregar una venta");
-        System.out.println("4. Agregar una compra");
-        System.out.println("5. mostrar Productos PorSeccion");
-        System.out.println("9. Salir");
-        opcion = Integer.parseInt(lector.nextLine());
-            switch(opcion){
-                case 0:
-                    agregarProducto();
-                    break;
-                case 1:
-                    agregarSeccion();
-                    break;
-                case 2:
-                    agregarProveedor();
-                    break;
-                case 3:
-                    agregarVenta();
-                    break;
-                case 4:
-                    realizarCompra();
-                    break;
-                case 5:
-                    mostrarProductosPorSeccion();
-                    break;
-                case 9:
-                    System.out.println("Adios");
-                    break;
-                default:
-                    System.out.println("Opcion no valida");
-                    break;
-            }
-        }while(opcion!=9);        
-    }
-
-    
-    private void agregarProducto() {
-        System.out.println("Ingresar id de la seccion");
-        idSeccion = lector.nextLine();
+    public void agregarProducto(String idSeccion, String idPorducto, String nombre) {
         if(secciones.containsKey(idSeccion)){
-            System.out.println("Ingresar id del producto");
-            id = lector.nextLine();
-            System.out.println("Ingresar nombre del producto");
-            nombre = lector.nextLine();
             Producto ejemplo = new Producto(id, nombre);
             seccion = secciones.get(idSeccion);
             seccion.agregarProductoASeccion(ejemplo);

@@ -10,10 +10,11 @@ import vistas.Menu;
  * @author Andres
  */
 public class GestionInventarioSupermercado {
-
+    private static Supermercado supermercado = new Supermercado();
     public static void main(String[] args) {
-        Supermercado supermercado = new Supermercado();
         Menu.iniciar();
-        supermercado.menu();
+    }
+    public static void agregarProducto(String idSeccion, String idProducto, String nombre){
+       supermercado.agregarProducto(idSeccion, idProducto, nombre);
     }
 }

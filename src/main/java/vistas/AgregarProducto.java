@@ -4,6 +4,9 @@
  */
 package vistas;
 
+import com.mycompany.gestioninventariosupermercado.Supermercado;
+import controlador.controla;
+
 /**
  *
  * @author Andres
@@ -29,12 +32,23 @@ public class AgregarProducto extends javax.swing.JFrame {
         lblAgregarProducto = new javax.swing.JLabel();
         btnAgregarProducto = new javax.swing.JButton();
         btnVolverProducto = new javax.swing.JButton();
+        txtIdSeccion = new javax.swing.JTextField();
+        txtIdProducto = new javax.swing.JTextField();
+        txtNombreProducto = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblAgregarProducto.setText("Agregar producto");
 
         btnAgregarProducto.setText("Agregar");
+        btnAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarProductoActionPerformed(evt);
+            }
+        });
 
         btnVolverProducto.setText("Volver");
         btnVolverProducto.addActionListener(new java.awt.event.ActionListener() {
@@ -43,27 +57,63 @@ public class AgregarProducto extends javax.swing.JFrame {
             }
         });
 
+        txtIdProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdProductoActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Id de la seccion:");
+
+        jLabel2.setText("Id del producto:");
+
+        jLabel3.setText("Nombre del producto:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(143, 143, 143)
-                .addComponent(lblAgregarProducto)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(btnAgregarProducto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
-                .addComponent(btnVolverProducto)
-                .addGap(56, 56, 56))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(lblAgregarProducto))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAgregarProducto)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addComponent(btnVolverProducto))
+                            .addComponent(txtIdSeccion)
+                            .addComponent(txtIdProducto)
+                            .addComponent(txtNombreProducto))))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblAgregarProducto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregarProducto)
                     .addComponent(btnVolverProducto))
@@ -77,6 +127,14 @@ public class AgregarProducto extends javax.swing.JFrame {
         this.dispose();
         MenuProducto.iniciar();
     }//GEN-LAST:event_btnVolverProductoActionPerformed
+
+    private void txtIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdProductoActionPerformed
+
+    private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
+        controla.agregarProductoC(txtIdSeccion.getText(), txtIdProducto.getText(), txtNombreProducto.getText());
+    }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,6 +174,12 @@ public class AgregarProducto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarProducto;
     private javax.swing.JButton btnVolverProducto;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblAgregarProducto;
+    private javax.swing.JTextField txtIdProducto;
+    private javax.swing.JTextField txtIdSeccion;
+    private javax.swing.JTextField txtNombreProducto;
     // End of variables declaration//GEN-END:variables
 }
