@@ -90,7 +90,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnAgregarVenta">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agregar venta"/>
+        <Property name="text" type="java.lang.String" value="Menu ventas"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAgregarVentaActionPerformed"/>

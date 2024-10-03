@@ -56,7 +56,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnAgregarVenta.setText("Agregar venta");
+        btnAgregarVenta.setText("Menu ventas");
         btnAgregarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarVentaActionPerformed(evt);
@@ -140,7 +140,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarCompraActionPerformed
 
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
-        AgregarVenta.iniciar();
+        MenuVenta.iniciar();
         this.dispose();
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
 

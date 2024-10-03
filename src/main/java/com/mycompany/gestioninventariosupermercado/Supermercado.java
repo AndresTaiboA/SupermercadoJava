@@ -113,13 +113,7 @@ public class Supermercado {
         System.out.println("Compra Finalizada correctamente");
     }
 
-    private void agregarVenta() {
-    System.out.println("Ingrese id de venta");
-    String idVenta = lector.nextLine();
-
-    System.out.println("Ingrese el id del producto");
-    String idProducto = lector.nextLine();
-
+    public void agregarVenta(String idVenta, String idProducto, int cantidadVendida) {
     // Verificar si el producto está en el inventario general
     if (inventarioProductos.containsKey(idProducto)) {
         Seccion seccion;
@@ -130,9 +124,6 @@ public class Supermercado {
             seccion = secciones.get(claves.get(i));
 
             if (seccion.existeProducto(idProducto)) {
-                System.out.println("Ingrese la cantidad que se vendio");
-                int cantidadVendida = Integer.parseInt(lector.nextLine());
-
                 // Verificar si hay suficiente stock para realizar la venta
                 if (producto.getStock() < cantidadVendida) {
                     System.out.println("No hay suficiente stock");
