@@ -21,4 +21,7 @@ public class controla {
     public static void agregarVentaC(String idV, String idP, int cantidad){
         GestionInventarioSupermercado.agregarVenta(idV, idP, cantidad);
     }
+    public static void mostrarProductosC(){
+        GestionInventarioSupermercado.mostrarProductos();
+    }
 }

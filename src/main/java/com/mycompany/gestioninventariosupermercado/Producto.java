@@ -54,5 +54,8 @@ public class Producto {
     public void disminuirStock(){
         this.stock --;
     }
+    public void mostrarDatos(){
+        System.out.println(this.id +" "+ this.nombre +" "+ this.stock);
+    }
 
 }

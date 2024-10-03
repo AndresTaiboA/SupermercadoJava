@@ -29,18 +29,15 @@ public class Supermercado {
         this.umbral = 20;
         this.id = "001";
         this.nombre = "Supermercado XYZ";
-
-        // Cargar datos iniciales
-        cargarDatosIniciales();
     }
-    public void agregarProducto(String idSeccion, String idPorducto, String nombre) {
+    public void agregarProducto(String idSeccion, String idProducto, String nombre) throws SeccionNoExisteException{
         if(secciones.containsKey(idSeccion)){
             Producto ejemplo = new Producto(id, nombre);
             seccion = secciones.get(idSeccion);
             seccion.agregarProductoASeccion(ejemplo);
             System.out.println("Producto agregado correctamente");
         } else {
-            System.out.println("Esta seccion no existe");
+            throw new SeccionNoExisteException();
         }
     }
 
@@ -162,37 +159,8 @@ public class Supermercado {
             System.out.println();
         }
     }
-
-    private void cargarDatosIniciales() {
-        // Proveedores iniciales
-        Proveedor proveedor1 = new Proveedor("P001", "Proveedor Alimentos");
-        Proveedor proveedor2 = new Proveedor("P002", "Proveedor Bebidas");
-        proveedores.put(proveedor1.getId(), proveedor1);
-        proveedores.put(proveedor2.getId(), proveedor2);
-
-        // Secciones iniciales
-        Seccion seccionAlimentos = new Seccion("S001", "Alimentos");
-        Seccion seccionBebidas = new Seccion("S002", "Bebidas");
-        secciones.put(seccionAlimentos.getId(), seccionAlimentos);
-        secciones.put(seccionBebidas.getId(), seccionBebidas);
-        claves.add(seccionAlimentos.getId());
-        claves.add(seccionBebidas.getId());
-
-        // Productos iniciales
-        Producto producto1 = new Producto("PR001", "Arroz");
-        Producto producto2 = new Producto("PR002", "Coca Cola");
-        producto1.aumentarStock(50);
-        producto2.aumentarStock(30);
-
-        // Asignar productos a secciones
-        seccionAlimentos.agregarProductoASeccion(producto1);
-        seccionBebidas.agregarProductoASeccion(producto2);
-
-        // Agregar productos al inventario general
-        inventarioProductos.put(producto1.getId(), producto1);
-        inventarioProductos.put(producto2.getId(), producto2);
-
-        System.out.println("Datos iniciales cargados correctamente.");
+    public void llenarProductos(String id, Producto producto){
+        inventarioProductos.put(id, producto);
     }
 
     /* se considera un valor base, en caso de que el stock de un producto sea menor a este valor, 
