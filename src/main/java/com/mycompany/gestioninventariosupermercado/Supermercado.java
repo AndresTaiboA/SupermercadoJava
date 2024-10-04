@@ -4,6 +4,7 @@
  */
 package com.mycompany.gestioninventariosupermercado;
 
+import controlador.SeccionNoExisteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;

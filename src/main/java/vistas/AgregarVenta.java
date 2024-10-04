@@ -4,7 +4,7 @@
  */
 package vistas;
 
-import controlador.controla;
+import controlador.ControlaVenta;
 
 /**
  *
@@ -122,7 +122,7 @@ public class AgregarVenta extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
-        controla.agregarVentaC(txtIdVenta.getText(), txtIdProducto.getText(), Integer.parseInt(txtCantidad.getText()));
+        ControlaVenta.agregarVentaC(txtIdVenta.getText(), txtIdProducto.getText(), Integer.parseInt(txtCantidad.getText()));
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
 
     /**

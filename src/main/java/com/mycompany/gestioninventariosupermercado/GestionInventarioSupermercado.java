@@ -3,6 +3,7 @@
  */
 
 package com.mycompany.gestioninventariosupermercado;
+import controlador.SeccionNoExisteException;
 import vistas.Menu;
 import com.opencsv.exceptions.CsvValidationException;
 import controlador.Datos;

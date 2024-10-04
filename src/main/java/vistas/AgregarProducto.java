@@ -5,7 +5,7 @@
 package vistas;
 
 import com.mycompany.gestioninventariosupermercado.Supermercado;
-import controlador.controla;
+import controlador.ControlaProductos;
 
 /**
  *
@@ -133,7 +133,7 @@ public class AgregarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIdProductoActionPerformed
 
     private void btnAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarProductoActionPerformed
-        controla.agregarProductoC(txtIdSeccion.getText(), txtIdProducto.getText(), txtNombreProducto.getText());
+        ControlaProductos.agregarProductoC(txtIdSeccion.getText(), txtIdProducto.getText(), txtNombreProducto.getText());
     }//GEN-LAST:event_btnAgregarProductoActionPerformed
 
     /**

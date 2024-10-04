@@ -4,7 +4,7 @@
  */
 package vistas;
 
-import controlador.controla;
+import controlador.ControlaSeccion;
 
 /**
  *
@@ -112,7 +112,7 @@ public class AgregarSeccion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnAgregarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarSeccionActionPerformed
-        controla.agregarSeccionC(txtIdSeccion.getText(), txtNombreSeccion.getText());
+        ControlaSeccion.agregarSeccionC(txtIdSeccion.getText(), txtNombreSeccion.getText());
     }//GEN-LAST:event_btnAgregarSeccionActionPerformed
 
     /**

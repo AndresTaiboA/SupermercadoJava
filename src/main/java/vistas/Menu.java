@@ -4,7 +4,7 @@
  */
 package vistas;
 
-import controlador.controla;
+import controlador.ControlaProductos;
 
 /**
  *
@@ -133,7 +133,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarProveedorActionPerformed
 
     private void btnMostrarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarPActionPerformed
-        controla.mostrarProductosC();
+        ControlaProductos.mostrarProductosC();
     }//GEN-LAST:event_btnMostrarPActionPerformed
 
     private void btnAgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCompraActionPerformed
