@@ -4,9 +4,12 @@
  */
 package com.mycompany.gestioninventariosupermercado;
 
+import controlador.ProductoNoExisteException;
+import controlador.ProveedorNoExisteException;
 import controlador.ProveedorYaExistenteException;
 import controlador.SeccionNoExisteException;
 import controlador.SeccionYaExistenteException;
+import controlador.StockNoSuficienteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -66,41 +69,20 @@ public class Supermercado {
             }
         }
 
-    private void realizarCompra() {
-        System.out.println("Ingresar id de la compra");
-        String idCompra = lector.nextLine();
-
-        System.out.println("Ingresar id de la seccion");
-        String idSeccion = lector.nextLine();
+    public void realizarCompra(String idCompra, String idSeccion, String idProducto, String idProveedor, int cantidad) throws SeccionNoExisteException, ProductoNoExisteException, ProveedorNoExisteException{
         Seccion seccion = secciones.get(idSeccion);
         if (seccion == null) {
-            System.out.println("La seccion no existe");
-            return;
+            throw new SeccionNoExisteException();
         }
-
-        System.out.println("Ingresar id del producto");
-        String idProducto = lector.nextLine();
-
         if (!seccion.existeProducto(idProducto)) {
-            System.out.println("El producto no existe en esta sección");
-            return;
+            throw new ProductoNoExisteException();
         }
-
-        System.out.println("Ingresar id del proveedor");
-        String idProveedor = lector.nextLine();
         Proveedor proveedor = proveedores.get(idProveedor);
         if (proveedor == null) {
-            System.out.println("El proveedor no existe");
-            return;
+            throw new ProveedorNoExisteException();
         }
-
-        System.out.println("Ingresar cantidad a comprar");
-        int cantidad = Integer.parseInt(lector.nextLine());
-
         seccion.modificarStockProducto(idProducto, cantidad);
-        
         Producto productoTmp = seccion.copiarDatosProducto(idProducto);
-        
         if (productoTmp != null) {
             Compra compra = new Compra(idCompra, seccion, productoTmp, proveedor, cantidad);
             compras.add(compra);
@@ -109,7 +91,7 @@ public class Supermercado {
         System.out.println("Compra Finalizada correctamente");
     }
 
-    public void agregarVenta(String idVenta, String idProducto, int cantidadVendida) {
+    public void agregarVenta(String idVenta, String idProducto, int cantidadVendida) throws ProductoNoExisteException, StockNoSuficienteException{
     // Verificar si el producto está en el inventario general
     if (inventarioProductos.containsKey(idProducto)) {
         Seccion seccion;
@@ -122,7 +104,7 @@ public class Supermercado {
             if (seccion.existeProducto(idProducto)) {
                 // Verificar si hay suficiente stock para realizar la venta
                 if (producto.getStock() < cantidadVendida) {
-                    System.out.println("No hay suficiente stock");
+                    throw new StockNoSuficienteException();
                 } else {
                     // Disminuir el stock del producto
                     producto.disminuirStock(cantidadVendida);
@@ -137,9 +119,9 @@ public class Supermercado {
             }
         }
 
-        System.out.println("El producto no existe en ninguna sección.");
+        throw new ProductoNoExisteException();
     } else {
-        System.out.println("El producto no existe en el inventario.");
+        throw new ProductoNoExisteException();
     }
 }
 

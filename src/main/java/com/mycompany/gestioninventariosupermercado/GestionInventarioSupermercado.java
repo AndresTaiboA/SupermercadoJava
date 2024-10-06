@@ -7,8 +7,11 @@ import controlador.SeccionNoExisteException;
 import vistas.Menu;
 import com.opencsv.exceptions.CsvValidationException;
 import controlador.Datos;
+import controlador.ProductoNoExisteException;
+import controlador.ProveedorNoExisteException;
 import controlador.ProveedorYaExistenteException;
 import controlador.SeccionYaExistenteException;
+import controlador.StockNoSuficienteException;
 /**
  *
  * @author Andres
@@ -52,7 +55,21 @@ public class GestionInventarioSupermercado {
         }
     }
     public static void agregarVenta(String idVenta, String idProducto, int cantidad){
-        supermercado.agregarVenta(idVenta, idProducto, cantidad);
+        try{
+            supermercado.agregarVenta(idVenta, idProducto, cantidad);
+        }
+        catch (StockNoSuficienteException | ProductoNoExisteException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public static void agregarCompra(String idCompra, String idSeccion, String idProducto, String idProveedor, int cantidad){
+        try{
+            supermercado.realizarCompra(idCompra, idSeccion, idProducto, idProveedor, cantidad);
+        }
+        catch (SeccionNoExisteException | ProveedorNoExisteException | ProductoNoExisteException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     public static void mostrarProductos(){
         for(int i=0;i<productos.getSize();i++){
