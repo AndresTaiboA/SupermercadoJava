@@ -4,6 +4,8 @@
  */
 package vistas;
 
+import controlador.ControlaCompra;
+
 /**
  *
  * @author Andres
@@ -26,21 +28,122 @@ public class AgregarCompra extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnVolver = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        lblNuevaCompra = new javax.swing.JLabel();
+        txtIdCompra = new javax.swing.JTextField();
+        txtIdSeccion = new javax.swing.JTextField();
+        txtIdProducto = new javax.swing.JTextField();
+        txtIdProveedor = new javax.swing.JTextField();
+        txtCantidad = new javax.swing.JTextField();
+        lblIdCompra = new javax.swing.JLabel();
+        lblIdSeccion = new javax.swing.JLabel();
+        lblIdProducto = new javax.swing.JLabel();
+        lblIdProveedor = new javax.swing.JLabel();
+        lblCantidad = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        lblNuevaCompra.setText("Nueva compra");
+
+        lblIdCompra.setText("Id compra:");
+
+        lblIdSeccion.setText("Id seccion:");
+
+        lblIdProducto.setText("Id producto:");
+
+        lblIdProveedor.setText("Id proveedor:");
+
+        lblCantidad.setText("Cantidad:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblIdCompra)
+                            .addComponent(lblIdSeccion)
+                            .addComponent(lblIdProducto)
+                            .addComponent(lblIdProveedor)
+                            .addComponent(lblCantidad))
+                        .addGap(63, 63, 63)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtIdSeccion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtIdCompra, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblNuevaCompra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE))
+                            .addComponent(txtIdProducto, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCantidad, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtIdProveedor, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAgregar)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnVolver)))
+                .addGap(109, 109, 109))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblNuevaCompra)
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdCompra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdCompra))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdSeccion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdProducto))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdProveedor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCantidad))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVolver)
+                    .addComponent(btnAgregar))
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuCompra.iniciar();
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        ControlaCompra.agregarCompraC(txtIdCompra.getText(), txtIdSeccion.getText(), txtIdProducto.getText(), txtIdProveedor.getText(), Integer.parseInt(txtCantidad.getText()));
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +181,18 @@ public class AgregarCompra extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel lblCantidad;
+    private javax.swing.JLabel lblIdCompra;
+    private javax.swing.JLabel lblIdProducto;
+    private javax.swing.JLabel lblIdProveedor;
+    private javax.swing.JLabel lblIdSeccion;
+    private javax.swing.JLabel lblNuevaCompra;
+    private javax.swing.JTextField txtCantidad;
+    private javax.swing.JTextField txtIdCompra;
+    private javax.swing.JTextField txtIdProducto;
+    private javax.swing.JTextField txtIdProveedor;
+    private javax.swing.JTextField txtIdSeccion;
     // End of variables declaration//GEN-END:variables
 }

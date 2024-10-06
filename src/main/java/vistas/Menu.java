@@ -137,7 +137,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMostrarPActionPerformed
 
     private void btnAgregarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCompraActionPerformed
-        AgregarCompra.iniciar();
+        MenuCompra.iniciar();
         this.dispose();
     }//GEN-LAST:event_btnAgregarCompraActionPerformed
 
