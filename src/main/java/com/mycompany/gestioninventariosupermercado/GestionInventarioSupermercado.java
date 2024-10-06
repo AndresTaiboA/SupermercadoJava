@@ -7,6 +7,8 @@ import controlador.SeccionNoExisteException;
 import vistas.Menu;
 import com.opencsv.exceptions.CsvValidationException;
 import controlador.Datos;
+import controlador.ProveedorYaExistenteException;
+import controlador.SeccionYaExistenteException;
 /**
  *
  * @author Andres
@@ -34,7 +36,20 @@ public class GestionInventarioSupermercado {
         }
     }
     public static void agregarSeccion(String id, String nombre){
-        supermercado.agregarSeccion(id, nombre);
+        try{
+            supermercado.agregarSeccion(id, nombre);
+        }
+        catch (SeccionYaExistenteException e){
+            System.out.println(e.getMessage());
+        }
+    }
+    public static void agregarProveedor(String id, String nombre){
+        try{
+            supermercado.agregarProveedor(id, nombre);
+        }
+        catch (ProveedorYaExistenteException e){
+            System.out.println(e.getMessage());
+        }
     }
     public static void agregarVenta(String idVenta, String idProducto, int cantidad){
         supermercado.agregarVenta(idVenta, idProducto, cantidad);

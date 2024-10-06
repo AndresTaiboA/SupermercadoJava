@@ -4,7 +4,9 @@
  */
 package com.mycompany.gestioninventariosupermercado;
 
+import controlador.ProveedorYaExistenteException;
 import controlador.SeccionNoExisteException;
+import controlador.SeccionYaExistenteException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -33,7 +35,7 @@ public class Supermercado {
     }
     public void agregarProducto(String idSeccion, String idProducto, String nombre) throws SeccionNoExisteException{
         if(secciones.containsKey(idSeccion)){
-            Producto ejemplo = new Producto(id, nombre);
+            Producto ejemplo = new Producto(idProducto, nombre);
             seccion = secciones.get(idSeccion);
             seccion.agregarProductoASeccion(ejemplo);
             System.out.println("Producto agregado correctamente");
@@ -42,9 +44,9 @@ public class Supermercado {
         }
     }
 
-    public void agregarSeccion(String id, String nombre) {
+    public void agregarSeccion(String id, String nombre) throws SeccionYaExistenteException{
         if(secciones.containsKey(idSeccion)){
-            System.out.println("Esta seccion ya existe");
+            throw new SeccionYaExistenteException();
         } else {
             Seccion seccion = new Seccion(idSeccion, nombre);
             secciones.put(idSeccion, seccion);
@@ -54,14 +56,10 @@ public class Supermercado {
     }
    
     
-    private void agregarProveedor() {
-            System.out.println("Ingresar id del proveedor");
-            String idProveedor = lector.nextLine();
+    public void agregarProveedor(String idProveedor, String nombreProveedor) throws ProveedorYaExistenteException{
             if(proveedores.containsKey(idProveedor)) {
-                System.out.println("Este proveedor ya existe");
+                throw new ProveedorYaExistenteException();
             } else {
-                System.out.println("Ingresar nombre del proveedor");
-                String nombreProveedor = lector.nextLine();
                 Proveedor proveedor = new Proveedor(idProveedor, nombreProveedor);
                 proveedores.put(idProveedor, proveedor);
                 System.out.println("Proveedor ingresado correctamente");
